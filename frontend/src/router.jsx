@@ -6,6 +6,7 @@ import Login from "./Pages/Auth/Login";
 import Register from "./Pages/Auth/Register";
 import EditProfile from "./Pages/EditProfile/EditProfile";
 import Profile from "./Pages/Profile/Profile";
+import Photo from "./Pages/Photo/Photo";
 
 //Hooks
 import { useAuth } from "./hooks/useAuth";
@@ -29,6 +30,8 @@ export const Router = () => {
         <Route
           path="/register"
           element={!auth ? <Register /> : <Navigate to="/" />}
+        />
+        <Route path="/photos/:id" element={auth ? <Photo /> : <Navigate to="/login" />} 
         />
       </Routes>
     </>
